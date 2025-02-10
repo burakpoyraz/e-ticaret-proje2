@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './_components/Menu/Header'
 import Footer from './_components/Footer'
+import Hero from './_components/Hero'
 
 
 interface RouterProps {
@@ -13,6 +14,7 @@ const layout = ({children}: RouterProps) => {
     
     <div>
         <Header/>
+        
         <div className='min-h-screen'>
         {children}
 
