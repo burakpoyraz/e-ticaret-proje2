@@ -2,20 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --radius: 0.5rem;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.bgone {
+  @apply bg-white dark:bg-mycolor-900 ;
+}
+
+.bgheader {
+  @apply bg-warning-400 hover:bg-warning-400 dark:bg-warning-400 !important;
+}
+
+.active-header {
+  @apply bg-warning-500  hover:bg-warning-500 dark:bg-warning-500 !important;
 }
