@@ -34,7 +34,7 @@ const Hero = () => {
                   alt={item.title}
                   width={1920}
                   height={1080}
-                  className="object-cover h-96 md:h-[450px] lg:h-[600px]"
+                  className="object-cover h-96 md:h-[350px] lg:h-[400px]"
                 />
               </CardContent>
             </Card>
