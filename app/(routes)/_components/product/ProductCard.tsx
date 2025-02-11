@@ -40,14 +40,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
           width={300}
           height={300}
         />
-        <p className="text-gray-700">{product.description}</p>
-        <p className="text-lg font-semibold text-green-500">${product.price}</p>
+        
+        <p className="text-lg font-semibold">Price: <span className="text-green-500">${product.price}</span></p>
       </CardContent>
       <CardFooter className="flex justify-between items-center">
         <Button className="bg-blue-500 text-white px-4 py-2 rounded">
           Add to Cart
         </Button>
-        <ProductModal/>
+        <ProductModal product={product}/>
       </CardFooter>
     </Card>
     
