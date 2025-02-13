@@ -1,6 +1,6 @@
 "use client";
 import { ProductType } from "@/constans";
-import React,{useState} from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
@@ -12,20 +12,26 @@ import {
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import ProductModal from "./ProductModal";
+import { useToast } from "@/hooks/use-toast";
 
 interface ProductCardProps {
   product: ProductType;
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const { toast } = useToast();
 
-    const openModal = () => {
-        setIsOpen(true);
-    };
+  const openModal = () => {
+    setIsOpen(true);
+  };
 
-
-
+  const handleToastMessage = () => {
+    toast({
+      title: "Product Added",
+      description: `${product.title} has been added to your cart`,
+    });
+  };
 
   return (
     <Card className="shadow-lg">
@@ -40,19 +46,23 @@ const ProductCard = ({ product }: ProductCardProps) => {
           width={300}
           height={300}
         />
-        
-        <p className="text-lg font-semibold">Price: <span className="text-green-500">${product.price}</span></p>
+        <div>
+          <p className="text-lg font-semibold">
+            Price: <span className="text-green-500">${product.price}</span>
+          </p>
+        </div>
       </CardContent>
       <CardFooter className="flex justify-between items-center">
-        <Button className="bg-blue-500 text-white px-4 py-2 rounded">
+        <Button
+          onClick={handleToastMessage}
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+        >
           Add to Cart
         </Button>
-        <ProductModal product={product}/>
+        <ProductModal product={product} />
       </CardFooter>
     </Card>
-    
-   )
-  
+  );
 };
 
 export default ProductCard;
